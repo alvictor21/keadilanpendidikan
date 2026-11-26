@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Sparkles, ArrowDown, Users, BookOpen, ShieldCheck, HeartHandshake } from 'lucide-react';
+import { Sparkles, ArrowDown, Users, BookOpen, HeartHandshake } from 'lucide-react';
 import ImagePlaceholder from './ImagePlaceholder';
 
 export default function HeroSection() {
@@ -15,7 +15,7 @@ export default function HeroSection() {
       <div className="absolute bottom-4 left-6 w-80 h-80 rounded-full bg-amber-100/70 blur-2xl pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
           
           {/* Left Column: Heading and Presentation Pitch */}
           <div className="lg:col-span-7 text-left space-y-6">
@@ -95,46 +95,49 @@ export default function HeroSection() {
           </div>
 
           {/* Right Column: Hero Visual Artwork / Poster Representation */}
-          <div className="lg:col-span-5 relative flex justify-center">
+          <div className="lg:col-span-5 relative flex justify-center w-full">
             
             {/* Visual Frame styled like physical scrapbook / cutout artwork */}
-            <div className="relative w-full max-w-md bg-white border-2 border-amber-300 rounded-3xl p-4 sm:p-5 shadow-[6px_6px_0px_#F59E0B] transition-transform">
+            <div className="relative w-full max-w-md bg-white border-2 border-amber-300 rounded-3xl p-3 sm:p-5 shadow-[6px_6px_0px_#F59E0B] transition-transform">
               
-        
+              
 
-              {/* Main Artwork Image - 5 Students Hands Stacked */}
-              <div className="relative rounded-2xl overflow-hidden border border-amber-200 bg-amber-50/50">
+              {/* Main Artwork Image - 5 Students Hands Stacked (Fully Visible on All Screen Sizes) */}
+              <div className="rounded-2xl border border-amber-200 bg-[#FFFDF9] p-2 flex flex-col items-center justify-center">
                 <ImagePlaceholder
                   src="/images/students-upright.png"
-                  alt="Ilustrasi Siswa SMA Merajut Keberagaman"
-                  aspectRatio="aspect-4/3 sm:aspect-square"
+                  alt="Ilustrasi Lima Siswa SMA Bersatu dan Menangkupkan Tangan"
+                  aspectRatio="aspect-auto"
+                  objectFit="object-contain"
+                  imgClassName="w-full h-auto max-h-[360px] sm:max-h-[460px] object-contain object-bottom block"
                   placeholderTitle="Ilustrasi Siswa Merajut Keberagaman"
                   fileNameHint="public/images/students-upright.png"
                   badgeText="Gambar Utama Hero"
-                  className="border-none bg-transparent"
+                  className="w-full border-none bg-transparent"
                 />
-
-                {/* Floating caption at bottom of artwork */}
-                <div className="absolute bottom-2 inset-x-2 bg-white/90 backdrop-blur-xs rounded-xl p-2.5 border border-amber-200 text-center shadow-xs">
-                  <p className="text-xs font-bold text-neutral-900">
-                    "Tangan yang bertumpuk melambangkan solidaritas bersama"
-                  </p>
-                  <p className="text-[11px] text-neutral-600">
-                    Mewujudkan sekolah ramah, inklusif, dan bebas diskriminasi
-                  </p>
-                </div>
               </div>
 
-              {/* Extra Mini Callout Box */}
-              <div className="mt-4 flex items-center justify-between px-3 py-2 bg-amber-50 rounded-xl border border-amber-200">
+              {/* Caption Box Placed Cleanly Below Artwork (Does NOT block hands) */}
+              <div className="mt-3 p-3 bg-amber-50/90 rounded-2xl border border-amber-200 text-center shadow-2xs">
+                <p className="text-xs sm:text-sm font-extrabold text-neutral-900 leading-tight">
+                  "Tangan yang bertumpuk melambangkan solidaritas bersama"
+                </p>
+                <p className="text-[11px] text-neutral-600 mt-1 leading-normal">
+                  Persatuan dan kesetaraan bagi seluruh anak bangsa tanpa memandang perbedaan.
+                </p>
+              </div>
+
+              {/* Extra Mini Target Audience Badge */}
+              <div className="mt-3 flex items-center justify-between px-3 py-2 bg-[#FAF8F5] rounded-xl border border-amber-200/80">
                 <div className="flex items-center gap-2">
                   <BookOpen className="w-4 h-4 text-amber-700" />
-                  <span className="text-xs font-bold text-amber-950">Target Sosialisasi:</span>
+                  <span className="text-xs font-bold text-neutral-800">Target Sosialisasi:</span>
                 </div>
-                <span className="text-xs font-semibold text-amber-800 bg-amber-200/60 px-2 py-0.5 rounded-md">
+                <span className="text-xs font-semibold text-amber-900 bg-amber-200/70 px-2.5 py-0.5 rounded-md">
                   Pelajar Generasi Z / SMA
                 </span>
               </div>
+
             </div>
 
           </div>

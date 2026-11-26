@@ -14,7 +14,9 @@ export default function ImagePlaceholder({
   aspectRatio = 'aspect-video',
   placeholderTitle = 'Placeholder Gambar',
   fileNameHint = 'public/images/nama-file.jpg',
-  badgeText = 'Ganti Gambar'
+  badgeText = 'Ganti Gambar',
+  objectFit = 'object-cover',
+  imgClassName = '',
 }) {
   const [hasError, setHasError] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -32,7 +34,7 @@ export default function ImagePlaceholder({
             alt={alt}
             onError={() => setHasError(true)}
             onLoad={() => setIsLoaded(true)}
-            className={`h-full w-full object-cover transition-opacity duration-500 ${
+            className={`w-full transition-opacity duration-500 ${objectFit} ${imgClassName} ${
               isLoaded ? 'opacity-100' : 'opacity-0'
             }`}
           />
@@ -42,7 +44,7 @@ export default function ImagePlaceholder({
           </div>
         </>
       ) : (
-        <div className="flex h-full w-full flex-col items-center justify-center p-4 text-center">
+        <div className="flex h-full min-h-[160px] w-full flex-col items-center justify-center p-4 text-center">
           <div className="mb-2.5 flex h-12 w-12 items-center justify-center rounded-xl bg-amber-100 text-amber-700 shadow-xs">
             <ImageIcon className="h-6 w-6" />
           </div>
